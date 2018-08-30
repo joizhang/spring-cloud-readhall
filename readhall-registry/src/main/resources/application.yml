@@ -1,0 +1,21 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: registry
+  cloud:
+    config:
+      uri: http://localhost:8081
+      fail-fast: true
+      username: user
+      password: secret
+
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    server:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
